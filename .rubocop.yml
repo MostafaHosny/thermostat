@@ -1,0 +1,67 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - bin/*
+    - db/schema.rb
+    - vendor/**/*
+
+Layout/AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+Lint/HandleExceptions:
+  Enabled: false
+
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/*
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+    - db/migrate/*
+    - config/initializers/*
+    - config/routes.rb
+    - config/environments/*
+
+Metrics/ClassLength:
+  Exclude:
+    - db/migrate/*
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Exclude:
+    - spec/**/*
+    - db/migrate/*
+
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: optional
+
+Rails:
+  Enabled: true
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Exclude:
+    - spec/**/*
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
+
+Style/RescueStandardError:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
