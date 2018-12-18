@@ -164,6 +164,9 @@ GEM
       unicode-display_width (~> 1.4.0)
     ruby-progressbar (1.10.0)
     ruby_dep (1.5.0)
+    sequenced (3.1.1)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
     shoulda-callback-matchers (1.1.4)
       activesupport (>= 3)
     shoulda-matchers (3.1.2)
@@ -212,6 +215,7 @@ DEPENDENCIES
   rspec-rails
   rspec-sidekiq
   rubocop
+  sequenced
   shoulda-callback-matchers (~> 1.1.1)
   shoulda-matchers
   sidekiq

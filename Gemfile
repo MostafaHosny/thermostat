@@ -18,7 +18,7 @@ gem "puma", "~> 3.11"
 gem "sidekiq"
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem "sequenced"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
