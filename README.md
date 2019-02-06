@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* You should have `sidekiq` and `redis` installed on your machine
 
-Things you may want to cover:
+* For testing run `rspec`
 
-* Ruby version
+* run `rails db:seed` to add some thermostat to the database
 
-* System dependencies
+* API's
 
-* Configuration
+1- Create new reading
 
-* Database creation
+POST: `/api/v1/readings`
 
-* Database initialization
+header: Authorization: `Bearer { thermostat.household_token }` => Type Bearer Token
 
-* How to run the test suite
+body:
+`{
+ "reading": {
+   "temperature": 3.0, "humidity": 1, "battery_charge": 1
+  }
+}``
 
-* Services (job queues, cache servers, search engines, etc.)
+2 - GET Reading:
 
-* Deployment instructions
+GET:`/v1/readings/:id`
 
-* ...
+header: Authorization: `Bearer { thermostat.household_token }`
+
+3- GET Stats
+
+GET:`/v1/readings/stats`
+
+Credits.
+Mostafa Hosny
