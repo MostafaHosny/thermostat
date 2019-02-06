@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+location = Location.create(lat: "2.3", lng: "1.2")
+
+Thermostat.create(location: location)

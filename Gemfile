@@ -9,13 +9,18 @@ gem "rails", "~> 5.2.1"
 gem "pg", ">= 0.18", "< 2.0"
 # Use Puma as the app server
 gem "puma", "~> 3.11"
+
+gem "active_model_serializers"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem "redis-objects"
+
 gem "sidekiq"
+gem "sidekiq-batch"
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem "sequenced"
@@ -30,7 +35,10 @@ gem "bootsnap", ">= 1.1.0", require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem "byebug", platforms: %i[mri mingw x64_mingw]
+  gem "byebug"
+
+  gem "pry-byebug"
+  gem "pry-rails"
 
   gem "brakeman", require: false
   gem "bundler-audit", require: false
@@ -42,10 +50,7 @@ group :development, :test do
 end
 
 group :test do
-  gem "jsonapi-rspec", require: false
-  gem "rspec-sidekiq"
-  gem "shoulda-callback-matchers", "~> 1.1.1"
-  gem "shoulda-matchers"
+  gem "shoulda-matchers", "~> 3.0", require: false
 end
 group :development do
   gem "listen", ">= 3.0.5", "< 3.2"

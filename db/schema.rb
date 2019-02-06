@@ -13,12 +13,8 @@
 ActiveRecord::Schema.define(version: 2018_12_18_201308) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
-
-  create_table "cds", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "locations", force: :cascade do |t|
     t.decimal "lat"
@@ -27,9 +23,9 @@ ActiveRecord::Schema.define(version: 2018_12_18_201308) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "readings", force: :cascade do |t|
+  create_table "readings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "number"
-    t.bigint "thermostat_id"
+    t.uuid "thermostat_id"
     t.float "temperature"
     t.float "humidity"
     t.float "battery_charge"
@@ -38,7 +34,7 @@ ActiveRecord::Schema.define(version: 2018_12_18_201308) do
     t.index ["thermostat_id"], name: "index_readings_on_thermostat_id"
   end
 
-  create_table "thermostats", force: :cascade do |t|
+  create_table "thermostats", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "household_token"
     t.bigint "location_id"
     t.datetime "created_at", null: false
@@ -46,6 +42,5 @@ ActiveRecord::Schema.define(version: 2018_12_18_201308) do
     t.index ["location_id"], name: "index_thermostats_on_location_id"
   end
 
-  add_foreign_key "readings", "thermostats"
   add_foreign_key "thermostats", "locations"
 end
