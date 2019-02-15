@@ -76,7 +76,7 @@ private
   end
 
   def average(attribute_name)
-    total = thermostat_readings.map(&:"#{attribute_name}").push(reading.temperature)
+    total = thermostat_readings.map(&:"#{attribute_name}").push(reading.public_send(attribute_name))
     total.sum.fdiv(total.size + 1)
   end
 
